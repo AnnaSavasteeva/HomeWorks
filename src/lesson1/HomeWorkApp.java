@@ -59,7 +59,7 @@ public class HomeWorkApp {
 
     public static void compareNumbers(int a, int b) {
         String message;
-        message = (a >= b) ? a + " >= " +  b : a + " < " +  b;
+        message = (a >= b) ? (a + " >= " +  b) : (a + " < " +  b);
 
         System.out.println(message);
     }
