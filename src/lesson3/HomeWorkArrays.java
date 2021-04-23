@@ -6,7 +6,9 @@ import java.util.Random;
 public class HomeWorkArrays {
     public static void main(String[] args) {
         Random ran = new Random();
-        int[] numbersArr; //для задачи 5
+        int[] hundredNumbersArray; //для задачи 2
+        int[] numbersArr; //для задачи 3
+        int[] filledArr; //для задачи 5
         int[] randomNumbersArr; //для задачи 6
         int[] balancedArr; //для задачи 7
         int[] offsetArr; //для задачи 8
@@ -18,11 +20,14 @@ public class HomeWorkArrays {
 
 //        2
         System.out.println("\n--- 2 ---");
-        createNumbersArray(100);
+        hundredNumbersArray = createNumbersArray(100);
+        System.out.println(Arrays.toString(hundredNumbersArray));
 
 //        3
         System.out.println("\n--- 3 ---");
-        doubleNumbers();
+        numbersArr = new int[] {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
+        doubleNumbers(numbersArr);
+        System.out.println(Arrays.toString(numbersArr));
 
 //        4
         System.out.println("\n--- 4 ---");
@@ -30,8 +35,8 @@ public class HomeWorkArrays {
 
 //        5
         System.out.println("\n--- 5 ---");
-        numbersArr = createArrayWithInitialValue(ran.nextInt(5) + 1, ran.nextInt(101));
-        System.out.println(Arrays.toString(numbersArr));
+        filledArr = createFilledArray(ran.nextInt(5) + 1, ran.nextInt(101));
+        System.out.println(Arrays.toString(filledArr));
 
 //        6
         System.out.println("\n--- 6 ---");
@@ -81,29 +86,25 @@ public class HomeWorkArrays {
 
 
 
-    private static void createNumbersArray(int arrayLength) {
-        int[] hundredNumbersArray = new int[arrayLength];
+    private static int[] createNumbersArray(int arrayLength) {
+        int[] numArr = new int[arrayLength];
 
-        for (int i = 0; i < hundredNumbersArray.length; i++) {
-            hundredNumbersArray[i] = i + 1;
-            System.out.print(hundredNumbersArray[i] + " ");
+        for (int i = 0; i < numArr.length; i++) {
+            numArr[i] = i + 1;
         }
 
-        System.out.println();
+        return numArr;
     }
 
 
 
-    private static void doubleNumbers() {
-        int[] numbersArray = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
-
-        for (int i: numbersArray) {
-            if (i < 6) {
-                System.out.print((i * 2) + " ");
+    private static int[] doubleNumbers(int[] array) {
+        for (int i =0; i < array.length; i++) {
+            if (array[i] < 6) {
+                array[i] *= 2;
             }
         }
-
-        System.out.println();
+        return array;
     }
 
 
@@ -129,7 +130,7 @@ public class HomeWorkArrays {
 
 
 
-    private static int[] createArrayWithInitialValue(int len, int initialValue) {
+    private static int[] createFilledArray(int len, int initialValue) {
         int[] arr = new int[len];
 
         for(int i =0; i < len; i++) {
