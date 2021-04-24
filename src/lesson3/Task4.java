@@ -25,8 +25,7 @@ public class Task4 {
         int lastIndex = array.length - 1;
 
         for(int i = 0; i <= lastIndex; i++) {
-            array[i][i] = 1;
-            array[i][lastIndex - i] = 1;
+            array[i][i] = array[i][lastIndex - i] = 1;
         }
 
         return array;

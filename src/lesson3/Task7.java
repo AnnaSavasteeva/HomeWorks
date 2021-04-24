@@ -3,11 +3,12 @@ package lesson3;
 public class Task7 {
 
     public static void main(String[] args) {
-        int[] balancedArr1 = new int[] {2, 2, 2, 1, 2, 2, 10, 1};
-        int[] balancedArr2 = new int[] {1, 3, 2};
-
-        System.out.println(checkBalance(balancedArr1));
-        System.out.println(checkBalance(balancedArr2));
+        System.out.println(checkBalance(new int[] {2, 2, 2, 1, 2, 2, 10, 1}));
+        System.out.println(checkBalance(new int[] {1, 3, 2}));
+        System.out.println(checkBalance(new int[] {2, 2, 2, 1, 2, 2, 10, 1}));
+        System.out.println(checkBalance(new int[] {1, 1, 1, 2, 1}));
+        System.out.println(checkBalance(new int[] {3, 5}));
+        System.out.println(checkBalance(new int[] {1, 2, 0, 0, 3}));
     }
 
 
@@ -16,12 +17,9 @@ public class Task7 {
 
 //        способ 1
         int leftSum = arr[0];
-        int rightSum = 0;
-        for (int i = 1; i < arr.length; i++) {
-            rightSum += arr[i];
-        }
+        int rightSum = sum(arr, 1, arr.length);
 
-        for (int i = 1; i < arr.length;i++) {
+        for (int i = 1; i < arr.length; i++) {
             if (leftSum == rightSum) {
                 result = true;
                 break;
@@ -33,7 +31,23 @@ public class Task7 {
 
         return result;
 
+
 //        способ 2
+//        int leftSum = 0;
+//        int rightSum = sum(arr, 0, arr.length);
+//
+//        for (int i = 0; i < arr.length; i++) {
+//            leftSum = sum(arr, 0, i);
+//            rightSum = sum(arr, i, arr.length);
+//
+//            if (leftSum == rightSum) {
+//                result = true;
+//                break;
+//            }
+//        }
+//        return result;
+
+//        способ 3
 //        int firstSum = 0;
 //
 //        for (int i = 0; i < arr.length - 1; i++) {
@@ -49,6 +63,16 @@ public class Task7 {
 //            }
 //        }
 //        return result;
+    }
+
+
+    private static int sum(int[] array, int start, int end) {
+        int sum = 0;
+        for (int i = start; i < end; i++) {
+            sum += array[i];
+        }
+
+        return sum;
     }
 
 }

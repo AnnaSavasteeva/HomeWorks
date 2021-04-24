@@ -8,7 +8,7 @@ public class Task5 {
 
     public static void main(String[] args) {
         Random ran = new Random();
-        int[] filledArr;
+        int[] initializedArr;
         int len;
         int initialValue;
 
@@ -16,12 +16,12 @@ public class Task5 {
         initialValue = ran.nextInt(101);
         System.out.println("Длина массива: " + len + "\nЗначение всех элементов: " + initialValue);
 
-        filledArr = createFilledArray(len, initialValue);
-        System.out.println(Arrays.toString(filledArr));
+        initializedArr = createInitArray(len, initialValue);
+        System.out.println(Arrays.toString(initializedArr));
     }
 
 
-    private static int[] createFilledArray(int len, int initialValue) {
+    private static int[] createInitArray(int len, int initialValue) {
         int[] arr = new int[len];
 
 //        способ 1

@@ -27,6 +27,7 @@ public class Task6 {
         Arrays.sort(arr);
         return arr[0];
 
+
 //        способ 2
 //        int minValue = arr[0];
 //
@@ -34,6 +35,15 @@ public class Task6 {
 //            if (currEl < minValue) {
 //                minValue = currEl;
 //            }
+//        }
+//        return minValue;
+
+
+//        способ 3
+//        int minValue = arr[0];
+//
+//        for (int currEl: arr) {
+//            minValue = Math.min(minValue, currEl);
 //        }
 //        return minValue;
     }
@@ -44,6 +54,7 @@ public class Task6 {
         Arrays.sort(arr);
         return arr[arr.length - 1];
 
+
 //        способ 2
 //        int maxValue = arr[0];
 //
@@ -51,6 +62,15 @@ public class Task6 {
 //            if (currEl > maxValue) {
 //                maxValue = currEl;
 //            }
+//        }
+//        return maxValue;
+
+
+//        способ 3
+//        int maxValue = arr[0];
+//
+//        for (int currEl: arr) {
+//            maxValue = Math.max(maxValue, currEl);
 //        }
 //        return maxValue;
     }
