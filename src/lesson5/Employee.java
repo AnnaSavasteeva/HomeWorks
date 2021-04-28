@@ -19,14 +19,16 @@ public class Employee {
     }
 
 
+    @Override
     public String toString() {
-       return
-               "ФИО: " + getName() +
-               "\nДолжность: " + getPosition() +
-               "\nЗарплата: " + getSalary() +
-               "\nВозраст: " + getAge() +
-               "\nТелефон: " + getTel() +
-               "\nE-mail: " + getEmail();
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", position='" + position + '\'' +
+                ", email='" + email + '\'' +
+                ", tel='" + tel + '\'' +
+                ", salary=" + salary +
+                ", age=" + age +
+                '}';
     }
 
 

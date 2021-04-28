@@ -22,7 +22,7 @@ public class staffOverForty {
 
         for (Employee employee: staffArray) {
             if (employee.getAge() > 40) {
-                System.out.println(employee.toString());
+                System.out.println(employee);
                 System.out.println("\n------\n");
             }
         }
