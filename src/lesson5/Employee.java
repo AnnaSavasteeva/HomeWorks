@@ -1,5 +1,6 @@
 package lesson5;
 
+
 public class Employee {
     private final String name;
     private final String position;
@@ -19,16 +20,11 @@ public class Employee {
     }
 
 
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "name='" + name + '\'' +
-                ", position='" + position + '\'' +
-                ", email='" + email + '\'' +
-                ", tel='" + tel + '\'' +
-                ", salary=" + salary +
-                ", age=" + age +
-                '}';
+    public void printInfo() {
+//        1 вариант
+        System.out.println(this);
+//        2 вариант
+//        System.out.println(toString());
     }
 
 
@@ -54,6 +50,19 @@ public class Employee {
 
     public int getAge() {
         return age;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", position='" + position + '\'' +
+                ", email='" + email + '\'' +
+                ", tel='" + tel + '\'' +
+                ", salary=" + salary +
+                ", age=" + age +
+                '}';
     }
 
 }
