@@ -10,13 +10,13 @@ public class Employee {
     private final int age;
 
 
-    public Employee(String[] dataArr) {
-        this.name = dataArr[0];
-        this.position = dataArr[1];
-        this.email = dataArr[2];
-        this.tel = dataArr[3];
-        this.salary = Integer.parseInt(dataArr[4]);
-        this.age = Integer.parseInt(dataArr[5]);
+    public Employee(String name, String position, String email, String tel, String salary, String age) {
+        this.name = name;
+        this.position = position;
+        this.email = email;
+        this.tel = tel;
+        this.salary = Integer.parseInt(salary);
+        this.age = Integer.parseInt(age);
     }
 
 

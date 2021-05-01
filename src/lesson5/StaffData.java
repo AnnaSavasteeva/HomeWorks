@@ -13,7 +13,14 @@ public class StaffData {
 
 
     public static Employee createEmployee(int employeeID) {
-        return new Employee(getEmployee(employeeID));
+        String[] employee = getEmployee(employeeID);
+        String name = employee[0];
+        String position = employee[1];
+        String email = employee[2];
+        String tel = employee[3];
+        String salary = employee[4];
+        String age = employee[5];
+        return new Employee(name, position, email, tel, salary, age);
     }
 
     private static String[] getEmployee(int employeeID) {
