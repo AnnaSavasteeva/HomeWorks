@@ -3,28 +3,32 @@ package lesson6;
 import java.util.Objects;
 
 public class Cat extends Animal {
-    private final int RUN_LIMIT = 200;
+    public static final int RUN_LIMIT = 200;
+    private static int catsCounter;
 
     public Cat(String name) {
         super(name);
-        super.RUN_LIMIT = this.RUN_LIMIT;
+        super.runLimit = RUN_LIMIT;
+        catsCounter++;
     }
 
 
     @Override
     public void swim(int length) {
-        System.out.println(this.getName() + " не будет плыть " + length + this.UNIT + ", т.к. коты не любят плавать.");
+        String str;
+        if (length > 0) {
+            str = this.getName() + " не будет плыть " + length + this.UNIT + ", т.к. коты не любят плавать.";
+        } else {
+            str = "Коты не любят плавать. Кроме того, такой дистанции не может быть!";
+        }
+
+        System.out.println(str);
     }
 
-
-    @Override
-    public String toString() {
-        return "Cat{" +
-                "name='" + getName() + '\'' +
-                ", UNIT='" + UNIT + '\'' +
-                ", RUN_LIMIT=" + RUN_LIMIT +
-                '}';
+    public static String getCatsAmount() {
+        return "Всего котов: " + catsCounter;
     }
+
 
     @Override
     public boolean equals(Object o) {

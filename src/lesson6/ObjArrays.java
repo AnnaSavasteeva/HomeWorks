@@ -1,31 +1,34 @@
 package lesson6;
 
+
 public class ObjArrays {
 
-    public static void createCatsObjArr(String[][] arr, Animal[] animalArr) {
-        for (int animalsCount = 0; animalsCount < arr.length; animalsCount++) {
-            animalArr[animalsCount] = new Cat(arr[animalsCount][0]);
+    public static void createCatsObjArr(String[] arr, Animal[] animalArr) {
+        for (int animalIndex = 0; animalIndex < arr.length; animalIndex++) {
+            animalArr[animalIndex] = new Cat(arr[animalIndex]);
         }
     }
 
-    public static void createDogsObjArr(String[][] arr, Animal[] animalArr) {
-        for (int animalsCount = 0; animalsCount < arr.length; animalsCount++) {
-            animalArr[animalsCount] = new Dog(arr[animalsCount][0]);
+    public static void createDogsObjArr(String[] arr, Animal[] animalArr) {
+        for (int animalIndex = 0; animalIndex < arr.length; animalIndex++) {
+            animalArr[animalIndex] = new Dog(arr[animalIndex]);
         }
     }
 
-    public static void runSwim(Animal[] animals, String[][] animalArray) {
-        for (Animal animalObj: animals) {
-            for (String[] animal: animalArray) {
-                if (animalObj.getName().equals(animal[0])) {
-                    animalObj.run(Integer.parseInt(animal[1]));
-                    animalObj.swim(Integer.parseInt(animal[2]));
-                    break;
-                }
-            }
-            System.out.println("------");
+    public static void runData(Animal[] animals, int[] distance) {
+        for(int i = 0; i < animals.length; i++) {
+            animals[i].run(distance[i]);
         }
+        System.out.println("------");
     }
+
+    public static void swimData(Animal[] animals, int[] distance) {
+        for(int i = 0; i < animals.length; i++) {
+            animals[i].swim(distance[i]);
+        }
+        System.out.println("------");
+    }
+
 
 //    public static Animal[] createObjArr(String[][]arr, Animal[] animalArr, Class<?> className) {
 //        for (int animalsCount = 0; animalsCount < arr.length; animalsCount++) {
