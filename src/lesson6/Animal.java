@@ -2,31 +2,46 @@ package lesson6;
 
 import java.util.Objects;
 
+
 public abstract class Animal {
-    private final String name;
-    protected int runLimit;
-    protected int swimLimit;
+    private final String NAME;
+    protected final int RUN_LIMIT;
+    protected final int SWIM_LIMIT;
     protected final String UNIT = "м";
     private static int animalsCounter;
 
-    public Animal(String name) {
-        this.name = name;
+    public Animal(String name, int runLimit, int swimLimit) {
+        this.NAME = name;
+        this.RUN_LIMIT = runLimit;
+        this.SWIM_LIMIT = swimLimit;
         animalsCounter++;
     }
 
 
-    public abstract void swim(int length);
+    public void swim(int length) {
+        String string = this.NAME + " проплыл ";
 
-//    Нет смысла делать этот метод абстрактным, т.к. его реализация - одинакова для всех классов-потомков
-    public void run(int length) {
-        String string = this.name + " пробежал ";
-
-        if (length <= this.runLimit && length > 0) {
+        if (length <= this.SWIM_LIMIT && length > 0) {
             string += length + this.UNIT + ".";
         } else if (length == 0) {
-            string = this.name + " не захотел бежать.";
+            string = this.NAME + " не захотел плыть.";
         } else {
-            string = this.name + " мухлюет в беге: такой дистанции не может быть.";
+            string = this.NAME + " мухлюет в плавании: такой дистанции не может быть.";
+        }
+
+        System.out.println(string);
+    }
+
+
+    public void run(int length) {
+        String string = this.NAME + " пробежал ";
+
+        if (length <= this.RUN_LIMIT && length > 0) {
+            string += length + this.UNIT + ".";
+        } else if (length == 0) {
+            string = this.NAME + " не захотел бежать.";
+        } else {
+            string = this.NAME + " мухлюет в беге: такой дистанции не может быть.";
         }
 
         System.out.println(string);
@@ -34,7 +49,7 @@ public abstract class Animal {
 
 
     public String getName() {
-        return name;
+        return NAME;
     }
 
     public static String getAnimalsAmount() {
@@ -49,9 +64,9 @@ public abstract class Animal {
     @Override
     public String toString() {
         return this.getClass().getSimpleName() + "{" +
-                "name='" + name + '\'' +
-                ", runLimit=" + runLimit +
-                ", swimLimit=" + swimLimit +
+                "NAME='" + NAME + '\'' +
+                ", RUN_LIMIT=" + RUN_LIMIT +
+                ", SWIM_LIMIT=" + SWIM_LIMIT +
                 ", UNIT='" + UNIT + '\'' +
                 '}';
     }
@@ -61,12 +76,12 @@ public abstract class Animal {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Animal animal = (Animal) o;
-        return runLimit == animal.runLimit && Objects.equals(name, animal.name);
+        return RUN_LIMIT == animal.RUN_LIMIT && SWIM_LIMIT == animal.SWIM_LIMIT && Objects.equals(NAME, animal.NAME) && Objects.equals(UNIT, animal.UNIT);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, runLimit);
+        return Objects.hash(NAME, RUN_LIMIT, SWIM_LIMIT, UNIT);
     }
 
 }

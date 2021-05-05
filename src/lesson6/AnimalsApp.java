@@ -37,10 +37,6 @@ public class AnimalsApp {
         System.out.println(Cat.getCatsAmount());
         System.out.println(Dog.getDogsAmount());
 
-
-//        Animal[] cats = ObjArrays.createObjArr(catsArr, "Cat");
-//        Animal[] dogs = ObjArrays.createObjArr(dogsArr, "Dog");
-
     }
 
 }
