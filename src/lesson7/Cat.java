@@ -9,20 +9,44 @@ public class Cat extends Animal {
 
 
     @Override
-    public void eat(Plate p) {
+    public void checkEatProcess(Plate p) {
+        String message = this.NAME + " не голоден.";
+
         if (!this.isWellFed) {
-            if (this.appetite > p.getFoodAmount()){
-                int food = p.getFoodAmount();
-                this.appetite -= food;
-                p.decreaseFood(food);
-            } else if (this.appetite > 0) {
-                p.decreaseFood(this.appetite);
-                this.appetite = 0;
-                this.isWellFed = true;
+            if (p.isFoodInPlate()) {
+                if (isAppetiteBig(p)){
+                    int food = p.getFoodAmount();
+                    eat(p, food);
+                    decreaseAppetite(food);
+                    message = this.NAME + " доел все, что было в тарелке, но остался голодным.";
+                } else if (p.isFoodInPlateEnough(this.appetite)) {
+                    eat(p, this.appetite);
+                    decreaseAppetite(this.appetite);
+                    this.isWellFed = true;
+                    message = this.NAME + " наелся.";
+                }
             } else {
-                this.isWellFed = true;
+                message = "В тарелке не осталось еды. " + this.NAME + " остался голодным.";
             }
         }
+
+        System.out.println(message);
+    }
+
+
+    @Override
+    protected void eat(Plate p, int foodEaten) {
+        p.decreaseFood(foodEaten);
+    }
+
+
+    private void decreaseAppetite(int foodEaten) {
+        this.appetite -= foodEaten;
+    }
+
+
+    private boolean isAppetiteBig(Plate p) {
+        return this.appetite > p.getFoodAmount();
     }
 
 
@@ -30,7 +54,7 @@ public class Cat extends Animal {
         String str = this.NAME;
         str += (this.isWellFed)
                 ? " - сыт и доволен :)"
-                : " остается голодным с аппетитом " + this.appetite + " :(";
+                : " все еще голоден при аппетите " + this.appetite + " :(";
         return str;
     }
 

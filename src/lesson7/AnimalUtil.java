@@ -3,7 +3,7 @@ package lesson7;
 
 public class AnimalUtil {
 
-    public static void processFeeding(Animal[] animals, Plate plate, int foodLimit) {
+    public static void processFeeding(Animal[] animals, Plate plate) {
         System.out.println("--- Обедать! ---");
         plate.info();
         AnimalUtil.feedAnimals(animals, plate);
@@ -13,18 +13,20 @@ public class AnimalUtil {
         AnimalUtil.printAnimalsInfo(animals);
 
         System.out.println("--- Добавки? ---");
-        plate.fillPlate(plate.getFoodShortage(foodLimit), foodLimit);
+        plate.fillPlate(plate.getFoodShortage());
         plate.info();
 
         System.out.println("--- Кто там оставался голодным? ---");
         AnimalUtil.feedAnimals(animals, plate);
+
+        System.out.println("--- А сейчас как дела с сытостью? ---");
         AnimalUtil.printAnimalsInfo(animals);
     }
 
 
     public static void feedAnimals(Animal[] animals, Plate plate) {
         for(Animal animal: animals) {
-            animal.eat(plate);
+            animal.checkEatProcess(plate);
         }
     }
 

@@ -15,7 +15,8 @@ public abstract class Animal {
     }
 
 
-    public abstract void eat(Plate p);
+    public abstract void checkEatProcess(Plate p);
+    protected abstract void eat(Plate p, int foodEaten);
     public abstract String getHungerInfo();
 
 

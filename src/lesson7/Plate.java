@@ -1,50 +1,53 @@
 package lesson7;
 
-import java.util.Objects;
 
+import java.util.Objects;
 
 public class Plate {
     private int foodAmount;
-    private boolean isPlateFull;
+    private final int foodLimit;
 
     public Plate(int food) {
         this.foodAmount = food;
-        isPlateFull = true;
+        this.foodLimit = food;
     }
 
 
-    public void decreaseFood (int n) {
-        foodAmount -= n;
-        isPlateFull = false;
+    public void decreaseFood (int foodEaten) {
+        foodAmount -= foodEaten;
     }
 
 
-    public void fillPlate(int foodAddition, int foodLimit) {
-        if (!isPlateFull) {
-            int finalFoodAmount = this.foodAmount + foodAddition;
-
-            if (finalFoodAmount > foodLimit) {
-                this.foodAmount = foodLimit;
+    public void fillPlate(int foodAddition) {
+        if (foodAddition > 0) {
+            if ((this.foodAmount + foodAddition) > this.foodLimit) {
+                this.foodAmount = this.foodLimit;
                 System.out.println("Еды было больше, чем нужно. Лишнюю не взяли.");
-                isPlateFull = true;
-            } else if (foodAddition > 0) {
-                this.foodAmount += foodAddition;
-                isPlateFull = (finalFoodAmount == foodLimit);
             } else {
-                System.out.println("Руки прочь от кошачьей еды!");
+                this.foodAmount += foodAddition;
             }
+        } else if (foodAddition == 0) {
+            System.out.println("Вы не добавили еды.");
         } else {
-            System.out.println("Тарелка полная!");
+            System.out.println("Еду нельзя убавлять.");
         }
     }
 
 
-    public int getFoodShortage(int foodLimit) {
-        return (foodLimit - this.foodAmount);
+    public int getFoodShortage() {
+        return (this.foodLimit - this.foodAmount);
     }
 
     public int getFoodAmount() {
         return foodAmount;
+    }
+
+    public boolean isFoodInPlate() {
+        return this.foodAmount > 0;
+    }
+
+    public boolean isFoodInPlateEnough(int needFood) {
+        return this.foodAmount >= needFood;
     }
 
     public void info() {
@@ -56,7 +59,7 @@ public class Plate {
     public String toString() {
         return "Plate{" +
                 "foodAmount=" + foodAmount +
-                ", isPlateFull=" + isPlateFull +
+                ", foodLimit=" + foodLimit +
                 '}';
     }
 
@@ -65,12 +68,12 @@ public class Plate {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Plate plate = (Plate) o;
-        return foodAmount == plate.foodAmount && isPlateFull == plate.isPlateFull;
+        return foodAmount == plate.foodAmount && foodLimit == plate.foodLimit;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(foodAmount, isPlateFull);
+        return Objects.hash(foodAmount, foodLimit);
     }
 
 }

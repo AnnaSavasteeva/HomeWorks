@@ -16,7 +16,7 @@ public class CatsFeeding {
             cats[i] = new Cat(catNames[i], (rand.nextInt(MAX_FOOD_AMOUNT) + 1));
         }
 
-        AnimalUtil.processFeeding(cats, plate, MAX_FOOD_AMOUNT);
+        AnimalUtil.processFeeding(cats, plate);
     }
 
 }
