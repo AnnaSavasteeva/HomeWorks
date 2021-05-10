@@ -10,7 +10,7 @@ public abstract class Animal {
     protected boolean isWellFed;
 
     public Animal(String name, int appetite) {
-        this.NAME = name;
+        this.name = name;
         this.appetite = appetite;
     }
 
@@ -23,7 +23,7 @@ public abstract class Animal {
     @Override
     public String toString() {
         return this.getClass().getSimpleName() + "{" +
-                "NAME='" + NAME + '\'' +
+                "name='" + name + '\'' +
                 ", appetite=" + appetite +
                 ", isWellFed=" + isWellFed +
                 '}';
@@ -34,12 +34,12 @@ public abstract class Animal {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Animal animal = (Animal) o;
-        return appetite == animal.appetite && isWellFed == animal.isWellFed && Objects.equals(NAME, animal.NAME);
+        return appetite == animal.appetite && isWellFed == animal.isWellFed && Objects.equals(name, animal.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(NAME, appetite, isWellFed);
+        return Objects.hash(name, appetite, isWellFed);
     }
 
 }
