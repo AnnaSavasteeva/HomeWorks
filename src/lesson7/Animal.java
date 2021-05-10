@@ -5,7 +5,7 @@ import java.util.Objects;
 
 public abstract class Animal {
 
-    protected final String NAME;
+    protected final String name;
     protected int appetite;
     protected boolean isWellFed;
 
