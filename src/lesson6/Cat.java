@@ -15,7 +15,7 @@ public class Cat extends Animal {
     public void swim(int length) {
         String str;
         if (length > 0) {
-            str = this.getName() + " не будет плыть " + length + this.UNIT + ", т.к. коты не любят плавать.";
+            str = this.getName() + " не будет плыть " + length + this.unit + ", т.к. коты не любят плавать.";
         } else {
             str = "Коты не любят плавать. Кроме того, такой дистанции не может быть!";
         }

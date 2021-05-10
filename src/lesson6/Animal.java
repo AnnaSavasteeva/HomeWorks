@@ -4,29 +4,29 @@ import java.util.Objects;
 
 
 public abstract class Animal {
-    private final String NAME;
-    protected final int RUN_LIMIT;
-    protected final int SWIM_LIMIT;
-    protected final String UNIT = "м";
+    private final String name;
+    protected final int run_limit;
+    protected final int swim_limit;
+    protected final String unit = "м";
     private static int animalsCounter;
 
     public Animal(String name, int runLimit, int swimLimit) {
-        this.NAME = name;
-        this.RUN_LIMIT = runLimit;
-        this.SWIM_LIMIT = swimLimit;
+        this.name = name;
+        this.run_limit = runLimit;
+        this.swim_limit = swimLimit;
         animalsCounter++;
     }
 
 
     public void swim(int length) {
-        String string = this.NAME + " проплыл ";
+        String string = this.name + " проплыл ";
 
-        if (length <= this.SWIM_LIMIT && length > 0) {
-            string += length + this.UNIT + ".";
+        if (length <= this.swim_limit && length > 0) {
+            string += length + this.unit + ".";
         } else if (length == 0) {
-            string = this.NAME + " не захотел плыть.";
+            string = this.name + " не захотел плыть.";
         } else {
-            string = this.NAME + " мухлюет в плавании: такой дистанции не может быть.";
+            string = this.name + " мухлюет в плавании: такой дистанции не может быть.";
         }
 
         System.out.println(string);
@@ -34,14 +34,14 @@ public abstract class Animal {
 
 
     public void run(int length) {
-        String string = this.NAME + " пробежал ";
+        String string = this.name + " пробежал ";
 
-        if (length <= this.RUN_LIMIT && length > 0) {
-            string += length + this.UNIT + ".";
+        if (length <= this.run_limit && length > 0) {
+            string += length + this.unit + ".";
         } else if (length == 0) {
-            string = this.NAME + " не захотел бежать.";
+            string = this.name + " не захотел бежать.";
         } else {
-            string = this.NAME + " мухлюет в беге: такой дистанции не может быть.";
+            string = this.name + " мухлюет в беге: такой дистанции не может быть.";
         }
 
         System.out.println(string);
@@ -49,7 +49,7 @@ public abstract class Animal {
 
 
     public String getName() {
-        return NAME;
+        return name;
     }
 
     public static String getAnimalsAmount() {
@@ -64,10 +64,10 @@ public abstract class Animal {
     @Override
     public String toString() {
         return this.getClass().getSimpleName() + "{" +
-                "NAME='" + NAME + '\'' +
-                ", RUN_LIMIT=" + RUN_LIMIT +
-                ", SWIM_LIMIT=" + SWIM_LIMIT +
-                ", UNIT='" + UNIT + '\'' +
+                "name='" + name + '\'' +
+                ", run_limit=" + run_limit +
+                ", swim_limit=" + swim_limit +
+                ", unit='" + unit + '\'' +
                 '}';
     }
 
@@ -76,12 +76,12 @@ public abstract class Animal {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Animal animal = (Animal) o;
-        return RUN_LIMIT == animal.RUN_LIMIT && SWIM_LIMIT == animal.SWIM_LIMIT && Objects.equals(NAME, animal.NAME) && Objects.equals(UNIT, animal.UNIT);
+        return run_limit == animal.run_limit && swim_limit == animal.swim_limit && Objects.equals(name, animal.name) && Objects.equals(unit, animal.unit);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(NAME, RUN_LIMIT, SWIM_LIMIT, UNIT);
+        return Objects.hash(name, run_limit, swim_limit, unit);
     }
 
 }
