@@ -12,25 +12,30 @@ public class Cat extends Animal {
     public void checkEatProcess(Plate p) {
         String message = this.NAME + " не голоден.";
 
-        if (!this.isWellFed) {
-            if (p.isFoodInPlate()) {
-                if (isAppetiteBig(p)){
-                    int food = p.getFoodAmount();
-                    eat(p, food);
-                    decreaseAppetite(food);
-                    message = this.NAME + " доел все, что было в тарелке, но остался голодным.";
-                } else if (p.isFoodInPlateEnough(this.appetite)) {
-                    eat(p, this.appetite);
-                    decreaseAppetite(this.appetite);
-                    this.isWellFed = true;
-                    message = this.NAME + " наелся.";
-                }
-            } else {
-                message = "В тарелке не осталось еды. " + this.NAME + " остался голодным.";
-            }
+        if (this.isWellFed) {
+            System.out.println(message);
+            return;
         }
 
+        if (!p.isFoodInPlate()) {
+            System.out.println("В тарелке не осталось еды. " + this.NAME + " остался голодным.");
+            return;
+        }
+
+
+        if (isAppetiteBig(p)){
+            int food = p.getFoodAmount();
+            eat(p, food);
+            decreaseAppetite(food);
+            message = this.NAME + " доел все, что было в тарелке, но остался голодным.";
+        } else if (p.isFoodInPlateEnough(this.appetite)) {
+            eat(p, this.appetite);
+            decreaseAppetite(this.appetite);
+            this.isWellFed = true;
+            message = this.NAME + " наелся.";
+        }
         System.out.println(message);
+
     }
 
 

@@ -7,7 +7,7 @@ public abstract class Animal {
 
     protected final String NAME;
     protected int appetite;
-    protected boolean isWellFed = false;
+    protected boolean isWellFed;
 
     public Animal(String name, int appetite) {
         this.NAME = name;
