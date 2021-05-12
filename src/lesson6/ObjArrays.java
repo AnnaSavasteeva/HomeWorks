@@ -29,14 +29,4 @@ public class ObjArrays {
         System.out.println("------");
     }
 
-
-//    public static Animal[] createObjArr(String[][]arr, Animal[] animalArr, Class<?> className) {
-//        for (int animalsCount = 0; animalsCount < arr.length; animalsCount++) {
-//            animalArr[animalsCount] = className.newInstance();
-////            animalArr[animalsCount] = new className(arr[animalsCount][0]);
-//        }
-//
-//        return animalArr;
-//    }
-
 }
