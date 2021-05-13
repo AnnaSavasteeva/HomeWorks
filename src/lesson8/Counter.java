@@ -114,6 +114,12 @@ public class Counter extends JFrame {
             counter = 0;
             stepField.setText("1");
             updateLabel(resultField);
+
+            System.out.println(
+                "Settings are reset to basic: " + System.lineSeparator() +
+                "counter: " + resultField.getText() + System.lineSeparator() +
+                "counter step: " + stepField.getText()
+            );
         });
 
         setVisible(true);
