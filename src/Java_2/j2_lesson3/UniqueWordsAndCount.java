@@ -3,15 +3,13 @@ package Java_2.j2_lesson3;
 import java.util.*;
 
 public class UniqueWordsAndCount {
+    private static String[] countriesArr = {
+            "Australia", "Austria", "United Kingdom", "Canada", "United States",
+            "Italy", "United Kingdom", "Iceland", "United States", "United Kingdom",
+            "Italy", "Austria", "New Zealand", "United Kingdom", "United States"
+    };
 
     public static void main(String[] args) {
-
-        String[] countriesArr = {
-                "Australia", "Austria", "United Kingdom", "Canada", "United States",
-                "Italy", "United Kingdom", "Iceland", "United States", "United Kingdom",
-                "Italy", "Austria", "New Zealand", "United Kingdom", "United States"
-        };
-
 //        Преобразуем массив в коллекцию
 //        Способ 1
         ArrayList<String> countriesList = new ArrayList<>(Arrays.asList(countriesArr));
