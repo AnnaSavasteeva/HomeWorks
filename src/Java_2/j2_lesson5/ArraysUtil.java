@@ -21,8 +21,8 @@ public class ArraysUtil {
 
 
 //        Модифицируем значения созданных массивов в разных потоках
-        Thread thread1 = new Thread (() -> modifyFloatArrValues(arrCopy1));
-        Thread thread2 = new Thread (() -> modifyFloatArrValues(arrCopy2));
+        Thread thread1 = new Thread (() -> modifyFloatArrValues(arrCopy1, 0));
+        Thread thread2 = new Thread (() -> modifyFloatArrValues(arrCopy2, arrHalfSize));
 
         thread1.start();
         thread2.start();
@@ -43,9 +43,13 @@ public class ArraysUtil {
 
 
 
-    public static void modifyFloatArrValues (float[] arr) {
+    public static void modifyFloatArrValues (float[] arr, int offset) {
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = computeValue(arr[i], i);
+//            offset нужен из-за того, что значение индекса используется в формуле из computeValue,
+//            при этом в методе modifyValuesViaThreads() массив разбивается на два массива и,
+//            соответственно, индексация меняется, а нужно, чтобы были задействованы прежние индексы.
+            int index = i + offset;
+            arr[i] = computeValue(arr[i], index);
         }
     }
 

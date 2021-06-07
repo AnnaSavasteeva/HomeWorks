@@ -9,7 +9,7 @@ public class MainClass {
     public static void main(String[] args) {
 
         float[] arr1 = ArraysUtil.createAndFillFloatArr(ARR_SIZE, FILL);
-        ArraysUtil.processAction(() -> ArraysUtil.modifyFloatArrValues(arr1));
+        ArraysUtil.processAction(() -> ArraysUtil.modifyFloatArrValues(arr1, 0));
 
         float[] arr2 = ArraysUtil.createAndFillFloatArr(ARR_SIZE, FILL);
         ArraysUtil.processAction(() -> ArraysUtil.modifyValuesViaThreads(arr2));
