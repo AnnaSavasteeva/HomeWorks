@@ -43,8 +43,8 @@ public class ArrayApp {
 
 
     private static void swapArrElementsAndPrint() {
-        ArraysUtil.swap(letters, 1, 2);
-        ArraysUtil.swap(numbers, 0, 1);
+        ArraysUtil.processSwap(letters, 1, 2);
+        ArraysUtil.processSwap(numbers, 0, 1);
         printArrays();
     }
 

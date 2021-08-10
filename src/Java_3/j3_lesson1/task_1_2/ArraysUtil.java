@@ -5,10 +5,29 @@ import java.util.Arrays;
 
 public class ArraysUtil {
 
+    public static <T> void processSwap(T[] items, int index1, int index2) {
+        if (items == null) {
+            throw new IllegalArgumentException("Потерян аргумент: массив");
+        }
+
+        checkIndex(items, index1);
+        checkIndex(items, index2);
+
+        swap(items, index1, index2);
+    }
+
+
     public static <T> void swap(T[] items, int index1, int index2) {
         T swap = items[index1];
         items[index1] = items[index2];
         items[index2] = swap;
+    }
+
+
+    private static <T> void checkIndex(T[] array, int index) {
+        if (index < 0 || index >= array.length) {
+            throw new IllegalArgumentException("Некорректный индекс элемента массива");
+        }
     }
 
 
