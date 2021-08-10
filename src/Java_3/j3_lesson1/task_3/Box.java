@@ -4,21 +4,26 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class Box <T extends Fruit> {
+public class Box <E extends Fruit> {
 
-    private final ArrayList<T> fruitBox;
+    private final ArrayList<E> fruitBox;
 
 
     public Box() {
         this.fruitBox = new ArrayList<>();
     }
 
-    public Box(T... fruits) {
+    public Box(E... fruits) {
         this.fruitBox = new ArrayList<>(Arrays.asList(fruits));
     }
 
+    public Box(ArrayList<E> fruits) {
+        this.fruitBox = new ArrayList<>();
+        this.fruitBox.addAll(fruits);
+    }
 
-    public void addFruit(T fruit) {
+
+    public void addFruit(E fruit) {
         this.fruitBox.add(fruit);
     }
 
@@ -27,11 +32,10 @@ public class Box <T extends Fruit> {
         if (fruitBox.size() == 0) {
             return 0.0f;
         }
-
 //        Неизвестно,весят ли все яблоки одинаково, поэтому складываем вес каждого,
 //        а не умножаем количество яблок на один стандартный вес
         float weight = 0.0f;
-        for (T fruit : fruitBox) {
+        for (E fruit : fruitBox) {
             weight += fruit.getFruitWeight();
         }
         return weight;
@@ -43,12 +47,12 @@ public class Box <T extends Fruit> {
     }
 
 
-    public Boolean compare(Box box) {
+    public Boolean compare(Box<?> box) {
         return this.getBoxWeight() == box.getBoxWeight();
     }
 
 
-    public void processMovingFruits(Box <T> box) {
+    public void processMovingFruits(Box<E> box) {
         if(isBoxEmpty(this)) {
             System.out.println("Невозможно пересыпать фрукты: коробка пуста");
             return;
@@ -67,15 +71,15 @@ public class Box <T extends Fruit> {
     }
 
 
-    private boolean isBoxEmpty(Box box) {
+    private boolean isBoxEmpty(Box<?> box) {
         return box.fruitBox.size() < 1;
     }
 
-    private boolean moveFruits(Box <T> box) {
+    private boolean moveFruits(Box<E> box) {
         return box.getFruitBox().addAll(0, this.fruitBox);
     }
 
-    private ArrayList<T> getFruitBox() {
+    private ArrayList<E> getFruitBox() {
         return fruitBox;
     }
 
