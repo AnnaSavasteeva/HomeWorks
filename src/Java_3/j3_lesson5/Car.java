@@ -47,6 +47,9 @@ public class Car implements Runnable {
         }
 
         placeFinished = ++carsFinishedCount;
+        if (carsFinishedCount == 1) {
+            System.out.println("ПОБЕДИТЕЛЬ >>> " + this.name);
+        }
 
         this.cdlFinish.countDown();
     }
