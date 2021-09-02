@@ -58,7 +58,7 @@ public class ArraysUtil {
 
 //    Task 2
     private boolean isNumberInArray(Integer[] arr, int number) {
-        return Arrays.binarySearch(arr, number) >= 0;
+        return Arrays.asList(arr).contains(number);
     }
 
     private boolean isNoOtherNumbers(Integer[] arr, int firstNumber, int secondNumber) {
