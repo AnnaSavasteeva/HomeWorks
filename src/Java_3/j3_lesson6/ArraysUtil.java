@@ -17,13 +17,26 @@ public class ArraysUtil {
     }
 
 
+    public boolean checkNumbersInArray(Integer[] arr, int firstNumber, int secondNumber) {
+        checkArray(arr);
 
+        if (!(isNumberInArray(arr, firstNumber) && isNumberInArray(arr, secondNumber))) {
+            return false;
+        }
+
+        return isNoOtherNumbers(arr, firstNumber, secondNumber);
+    }
+
+
+//    General
     private void checkArray(Integer[] array) {
         if (array == null) {
             throw new RuntimeException("Переданный массив не содержит элементов");
         }
     }
 
+
+//    Task 1
     private void checkItemIndex(int index, String message) {
         if (index == -1) {
             throw new RuntimeException(message);
@@ -40,6 +53,22 @@ public class ArraysUtil {
         }
 
         return index;
+    }
+
+
+//    Task 2
+    private boolean isNumberInArray(Integer[] arr, int number) {
+        return Arrays.binarySearch(arr, number) >= 0;
+    }
+
+    private boolean isNoOtherNumbers(Integer[] arr, int firstNumber, int secondNumber) {
+        for (int number : arr) {
+            if (number != firstNumber && number != secondNumber) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
 }
