@@ -6,7 +6,7 @@ import java.util.List;
 
 public class ArraysUtil {
 
-    public Integer[] getItemsAfterValue(Integer[] array, Integer value) {
+    public Integer[] getItemsAfterValue(Integer[] array, int value) {
         checkArray(array);
 
         int startIndex = getItemIndex(array, value);
@@ -30,7 +30,7 @@ public class ArraysUtil {
         }
     }
 
-    private Integer getItemIndex(Integer[] array, Integer item) {
+    private int getItemIndex(Integer[] array, int item) {
         int index = -1;
 
         for (int i = 0; i <  array.length; i++) {
