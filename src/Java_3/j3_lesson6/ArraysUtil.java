@@ -31,7 +31,7 @@ public class ArraysUtil {
 //    General
     private void checkArray(Integer[] array) {
         if (array == null) {
-            throw new RuntimeException("Переданный массив не содержит элементов");
+            throw new RuntimeException("Переданный массив отсутствует");
         }
     }
 

@@ -18,6 +18,7 @@ public class AppExecution {
         Integer[] numArr2 = {1, 1, 1, 4, 4, 1, 4, 4, 3};
         System.out.println(process.checkNumbersInArray(numArr1, 1, 4));
         System.out.println(process.checkNumbersInArray(numArr2, 1, 4));
+        System.out.println(process.checkNumbersInArray(null, 1, 4));
     }
 
 }
