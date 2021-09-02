@@ -17,4 +17,18 @@ public class TestingDataSource {
         return out.stream();
     }
 
+    public static Stream<Arguments> data_for_checking_array_operation() {
+        List<Arguments> out = new ArrayList<>();
+        out.add(Arguments.arguments(new Integer[] {1, 1, 1, 4, 4, 1, 4, 4}, true));
+        out.add(Arguments.arguments(new Integer[] {1, 4}, true));
+        out.add(Arguments.arguments(new Integer[] {4, 1}, true));
+        out.add(Arguments.arguments(new Integer[] {1, 1, 1, 1, 1, 1}, false));
+        out.add(Arguments.arguments(new Integer[] {4, 4, 4, 4}, false));
+        out.add(Arguments.arguments(new Integer[] {1, 4, 4, 1, 1, 4, 3}, false));
+        out.add(Arguments.arguments(new Integer[] {}, false));
+        out.add(Arguments.arguments(new Integer[] {2, 3, 5}, false));
+
+        return out.stream();
+    }
+
 }
